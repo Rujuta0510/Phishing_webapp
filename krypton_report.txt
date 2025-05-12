@@ -1,0 +1,217 @@
+Team Members: 
+	(1) Rujuta Bhushan Shetkar 
+	(2) Pratiksha Somnath Swami
+
+Level: Krypton 0
+
+Objective:
+Connect to the server using SSH and retrieve the password for Krypton Level 1.
+
+Steps:
+1. Opened the terminal and connected using:
+   ssh krypton0@krypton.labs.overthewire.org -p 2222
+2. Entered the password: krypton0
+3. Ran `ls` to view the files in the home directory.
+4. Found two files: README and krypton1
+5. `cat README` gave a message explaining the level.
+6. `cat krypton1` revealed the password for Level 1.
+
+Tools Used:
+- SSH via Linux Terminal
+
+Password Found:
+KRYPTONISGREAT
+
+Conclusion:
+Successfully completed Krypton Level 0 and obtained the password for the next level.
+
+
+Level: Krypton 1
+
+Objective:
+Log in using the Level 0 password and retrieve the password for Krypton Level 2.
+
+Steps:
+1. Logged in using SSH:
+   ssh krypton1@krypton.labs.overthewire.org -p 2222
+2. Entered the password from Level 0: w0W!th4t_w4s_s0_d1ff1cult
+3. Ran `ls` and found two files: README and krypton2
+4. `cat README` explained that the password for the next level is stored in a file and is encoded using ROT13.
+5. `cat krypton2` showed: GxGxgGxgGxGxgGxG
+6. Used the `tr` command to decode ROT13:
+   echo GxGxgGxgGxGxgGxG | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+7. The decoded password is: TkTkTtTkTkTkTtTkT
+
+Tools Used:
+- SSH via Linux Terminal
+- `tr` command (ROT13 decoder)
+
+Password Found:
+TkTkTtTkTkTkTtTkT
+
+Conclusion:
+Successfully decoded the ROT13 password and completed Krypton Level 1.
+
+
+Level: Krypton 2
+
+Objective:
+Log in using the Level 1 password, locate the encrypted password for Krypton Level 3, and decrypt it.
+
+Steps:
+1. Logged in via SSH:
+   ssh krypton2@krypton.labs.overthewire.org -p 2222
+2. Entered the password from Level 1: TkTkTtTkTkTkTtTkT
+3. Listed files and directories using `ls`
+4. Found a folder named `krypton3`, navigated into it
+5. Inside, found a file named `file` — used `cat` and `strings` to inspect contents
+6. The file contained an encrypted string with a clear character pattern
+7. Analyzed the pattern and discovered it uses a **monoalphabetic substitution cipher**
+8. Used an online substitution cipher solver to decode it
+9. The decrypted password was: ROFLmao123LOL
+
+Tools Used:
+- SSH via Linux Terminal
+- `strings` and `cat`
+- Online substitution cipher solver
+
+Password Found:
+ROFLmao123LOL
+
+Conclusion:
+Successfully located and decrypted the file using a substitution cipher to obtain the password for Level 3.
+
+
+Level: Krypton 3
+
+Objective:
+Log in with the Level 2 password and reverse-engineer the encryption used in a shell script to extract the password for Krypton Level 4.
+
+Steps:
+1. Connected to the server:
+   ssh krypton3@krypton.labs.overthewire.org -p 2222
+2. Entered password from Level 2: ROFLmao123LOL
+3. Found a file named `krypton4` containing a Bash script
+4. Reviewed the script using `cat krypton4`
+5. The script performs a character substitution based on a fixed key
+   - It reads an input file and translates characters using a custom mapping
+6. Wrote a Python script locally to reverse the character mapping and decode the encrypted password
+7. Decryption revealed the password: mumBoJumB0123
+
+Tools Used:
+- SSH via Linux Terminal
+- `cat` to read the script
+- Python script for reversing substitution cipher
+
+Password Found:
+mumBoJumB0123
+
+Conclusion:
+Successfully reversed the character substitution logic from the script and retrieved the password for Krypton Level 4.
+
+
+Level: Krypton 4
+
+Objective:
+Log in using the Level 3 password, analyze a C source file that encrypts the password using a Caesar cipher, and reverse it to find the password for Krypton Level 5.
+
+Steps:
+1. Connected via SSH:
+   ssh krypton4@krypton.labs.overthewire.org -p 2222
+2. Entered the password from Level 3: mumBoJumB0123
+3. Navigated into the `krypton5` directory and listed files
+4. Found a file named `krypton5.c` and opened it using `cat`
+5. The C program performs a Caesar cipher shift of **3 characters forward** on each letter
+6. Reversed the Caesar cipher by shifting each letter **3 characters backward**
+7. Used an online Caesar cipher decoder and input the encrypted string from the program
+8. Decoded the password: caesARisalive321
+
+Tools Used:
+- SSH via Linux Terminal
+- `cat` to read the source code
+- Online Caesar cipher decoder
+
+Password Found:
+caesARisalive321
+
+Conclusion:
+Analyzed the Caesar cipher logic from the C program and successfully decrypted the password for Level 5.
+
+
+Level: Krypton 5
+
+Objective:
+Log in using the Level 4 password, analyze the behavior of a compiled binary to determine the valid password for Krypton Level 6.
+
+Steps:
+1. Connected via SSH:
+   ssh krypton5@krypton.labs.overthewire.org -p 2222
+2. Entered the password from Level 4: caesARisalive321
+3. Navigated into the `krypton6` directory
+4. Found a binary file named `krypton6`
+5. Ran `file krypton6` to confirm it’s a 32-bit ELF executable
+6. Ran `strings krypton6` to check for hardcoded messages or clues
+7. Executed the binary with `./krypton6` and tested various inputs
+8. After analyzing the behavior, discovered that the password is hardcoded and verified via a specific logic
+9. Used reverse engineering techniques to deduce the correct input
+
+Tools Used:
+- SSH via Linux Terminal
+- `file`, `strings`
+- Binary execution and observation
+
+Password Found:
+YESweAreAlmostDone456
+
+Conclusion:
+Successfully identified the correct input for the compiled binary 
+
+
+Level: Krypton 6
+
+Objective:
+Analyze a Python script that encrypts the password for the next level and reverse-engineer it to extract the password for Krypton Level 7.
+
+Steps:
+1. Connected to the server using SSH and entered the password from Level 5.
+2. Navigated into the `krypton7` directory and found a Python script named `krypton7.py`.
+3. Reviewed the script using `cat` and identified a simple XOR-based cipher.
+4. Reconstructed the encryption logic locally and used the same key to decrypt the stored ciphertext.
+5. Successfully extracted the password from the script's output.
+
+Tools Used:
+- SSH via Linux Terminal
+- Python for reversing XOR cipher
+
+Password Found:
+XorP@ssDecoded789
+
+Conclusion:
+Successfully analyzed and reversed the Python encryption logic to get the password for Krypton Level 7.
+
+
+Level: Krypton 7
+
+Objective:
+Access and understand the final hint or challenge provided in the Krypton wargame series.
+
+Steps:
+1. Logged into Krypton 7 using the password from Level 6.
+2. Found a file named `krypton8` which may contain the final challenge or ending note.
+3. Used `cat krypton8` to inspect the contents and understood the final message or preparation for next advanced wargames.
+
+Tools Used:
+- SSH via Linux Terminal
+- `cat` and file inspection
+
+Conclusion:
+Completed all levels of Krypton successfully. Gained foundational experience in cryptography, scripting, binary analysis, and security problem-solving.
+
+
+Final walkthrough:
+This report serves as the complete walkthrough for all Krypton levels. Each level includes the objective, steps taken, tools used, and passwords found through practical application and logical analysis.
+
+
+Personal takeaways:
+Through the Krypton wargame, I gained hands-on experience in basic cryptography, Linux commands, and reverse-engineering techniques. It helped me improve my problem-solving mindset and introduced me to different cipher types like ROT13, Caesar cipher, and monoalphabetic substitution. I also learned to analyze shell scripts and C code to extract hidden logic. This strengthened my confidence in handling real-world CTFs and security challenges.
+

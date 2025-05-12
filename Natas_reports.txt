@@ -1,0 +1,771 @@
+Team Members: 
+	(1) Rujuta Bhushan Shetkar 
+	(2) Pratiksha Somnath Swami
+
+Level: Natas 0
+
+Objective:
+Login to the web interface and retrieve the password for Natas Level 1.
+
+Steps:
+1. Navigated to: http://natas0.natas.labs.overthewire.org
+2. Logged in with username and password: natas0 / natas0
+3. Viewed the page and saw a message prompting to view the source
+4. Opened the page source using browser developer tools
+5. Found a comment revealing the next level's password
+
+Tools Used:
+- Firefox (View Page Source)
+
+Password Found:
+0nzCigAq7t2iALyvU9xcHlYN4MlkIwlq
+
+Conclusion:
+Successfully retrieved the password from a comment in the HTML source code.
+
+
+Level: Natas 1
+
+Objective:
+Log in and view the HTML source code to retrieve the password for Natas Level 2.
+
+Steps:
+1. Navigated to: http://natas1.natas.labs.overthewire.org
+2. Logged in using username: natas1 and password from Level 0
+3. The webpage displayed no visible content
+4. Used browser’s “View Page Source” option by pressing ctrl+U
+5. Found an HTML comment containing the password for the next level
+
+Tools Used:
+- Firefox (View Page Source)
+
+Password Found:
+TguMNxKo1DSa1tujBLuZJnDUlCcUAPlI
+
+Conclusion:
+Successfully retrieved the password for Level 2 by inspecting hidden comments in the HTML source code.
+
+
+Level: Natas 2
+
+Objective:
+Explore the server for hidden files or directories and retrieve the password for Level 3.
+
+Steps:
+1. Navigated to: http://natas2.natas.labs.overthewire.org
+2. Logged in using the credentials from Level 1
+3. The homepage offered no useful content but loaded from /files/index.html
+4. Changed the URL path manually to: /files/users.txt
+5. Found a file that listed credentials in plaintext
+
+Tools Used:
+- Firefox Browser (address bar navigation)
+- Manual directory path manipulation
+
+Password Found:
+3gqisGdR0pjm6tpkDKdIWO2hSvchLeYH
+
+Conclusion:
+Successfully discovered a hidden file on the server and retrieved the password for Natas Level 3.
+
+
+Level: Natas 3
+
+Objective:
+Explore hidden files and directories to retrieve the password for Natas Level 4.
+
+Steps:
+1. Navigated to: http://natas3.natas.labs.overthewire.org
+2. Logged in using credentials from Level 2
+3. Viewed the page source and found a hint about hidden content
+4. Manually accessed /robots.txt to find a Disallow rule pointing to /s3cr3t/
+5. Opened /s3cr3t/users.txt to retrieve the password
+
+Tools Used:
+- Firefox Browser (View Page Source)
+- URL manipulation
+
+Password Found:
+QryZXc2e0zahULdHrtHxzyYkj59kUxLQ
+
+Conclusion:
+Successfully found the hidden directory using hints in robots.txt and retrieved the password for Level 4.
+
+
+Level: Natas 4
+
+Objective:
+Bypass server security check based on the HTTP Referer header to retrieve the password for Natas Level 5.
+
+Steps:
+1. Navigated to: http://natas4.natas.labs.overthewire.org
+2. Logged in using credentials from Level 3
+3. Received an error saying access was denied due to missing Referer header
+4. Used curl to manually send a Referer header pointing to http://natas5.natas.labs.overthewire.org/
+5. Successfully bypassed the Referer check and retrieved the password
+
+Tools Used:
+- Linux Terminal (curl command)
+- Browser Developer Tools (optional method)
+
+Password Found:
+0n35PkggAPm2zbEpOU802c0x0Msn1ToK
+
+Conclusion:
+Understood how web servers use HTTP headers for validation and successfully manipulated the Referer header to access restricted content.
+
+
+Level: Natas 5
+
+Objective:
+Manipulate the session cookie to gain access and retrieve the password for Level 6.
+
+Steps:
+1. Logged in at http://natas5.natas.labs.overthewire.org using credentials from Level 4
+2. Page displayed “You are not logged in.”
+3. Opened Developer Tools → Application tab → Checked Cookies
+4. Found cookie: loggedin=false
+5. Changed value to loggedin=true
+6. Refreshed the page and successfully revealed the password
+
+Tools Used:
+- Browser Developer Tools (Cookie editor)
+
+Password Found:
+0RoJwHdSKWFTYR5WuiAewauSuNaBXned
+
+Conclusion:
+Successfully bypassed the login check by modifying a browser cookie.
+
+
+Level: Natas 6
+
+Objective:
+Find and retrieve a secret value from a hidden file to access the password for Level 7.
+
+Steps:
+1. Logged in at http://natas6.natas.labs.overthewire.org using credentials from Level 5
+2. Viewed the page source and found a comment hinting at the secret storage
+3. Guessed and accessed http://natas6.natas.labs.overthewire.org/includes/secret.inc
+4. Retrieved the secret value
+5. Submitted the secret through the form
+6. Received the password for the next level
+
+Tools Used:
+- Browser View Source
+- URL manipulation
+
+Password Found:
+bmg8SvU1LizuWjx3y7xkNERkHxGre0GS
+
+Conclusion:
+Successfully located and submitted a hidden secret value to retrieve the password for the next level.
+
+
+Level: Natas 7
+
+Objective:
+Manipulate the URL parameters to directly access sensitive server files and retrieve the password for Natas Level 8.
+
+Steps:
+1. Logged in at http://natas7.natas.labs.overthewire.org using credentials from Level 6
+2. Observed the page parameter change in the URL when switching between Home and About
+3. Modified the URL manually to access: /etc/natas_webpass/natas8
+4. Retrieved the password for the next level from the server file
+
+Tools Used:
+- Browser address bar manipulation
+
+Password Found:
+xcoXLmzMkoIP9D7hlgPlh9XD7OgLAe5Q
+
+Conclusion:
+Successfully exploited file inclusion vulnerability by manipulating the URL parameters to gain unauthorized file access.
+
+
+Level: Natas 8
+
+Objective:
+Decode the base64-encoded secret and submit it to retrieve the password for Natas Level 9.
+
+Steps:
+1. Logged in at http://natas8.natas.labs.overthewire.org using credentials from Level 7
+2. Viewed the page source and identified a base64 encoded secret
+3. Decoded the base64 secret using Linux command line
+4. Submitted the decoded secret through the form
+5. Retrieved the password for the next level
+
+Tools Used:
+- Browser View Source
+- Linux base64 decoding
+
+Password Found:
+ZE1ck82lmdGIoErlhQgWND6j2Wzz6b6t
+
+Conclusion:
+Successfully decoded the encoded secret using base64 and retrieved the password for Natas Level 9.
+
+
+Level: Natas 9
+
+Objective:
+Exploit a command injection vulnerability in the search form to retrieve the password for Natas Level 10.
+
+Steps:
+1. Logged in at http://natas9.natas.labs.overthewire.org using credentials from Level 8
+2. Observed that user input is passed to a server-side command
+3. Injected command: ; cat /etc/natas_webpass/natas10
+4. Retrieved the contents of the password file for the next level
+
+Tools Used:
+- Browser Search Input Exploitation
+
+Password Found:
+t7I5VHvpa14sJTUGV0cbEsbYfFP2dmOu
+
+Conclusion:
+Successfully performed command injection to retrieve sensitive information.
+
+
+Level: Natas 10
+
+Objective:
+Bypass limited input sanitization and perform command injection to retrieve the password for Natas Level 11.
+
+Steps:
+1. Logged in at http://natas10.natas.labs.overthewire.org using credentials from Level 9
+2. Noticed special characters like ; and & are blocked
+3. Used command substitution syntax: .(...)
+4. Injected command: . /etc/natas_webpass/natas11
+5. Retrieved the password for the next level
+
+Tools Used:
+- Browser Search Input Exploitation with Command Substitution
+
+Password Found:
+UJdqkK1pTu6VLt9UHWAgRZz6sVUZ3lEk
+
+Conclusion:
+Successfully bypassed basic server-side input sanitization and extracted sensitive information.
+
+
+Level: Natas 11
+
+Objective:
+Modify the XOR-encrypted cookie data to gain admin access and retrieve the password for Natas Level 12.
+
+Steps:
+1. Logged in at http://natas11.natas.labs.overthewire.org using username natas11 and password from Level 10.
+2. Inspected the cookie named 'data' using browser Developer Tools.
+3. Decoded the cookie from Base64 and decrypted it using XOR cipher with the key 'qw8J'.
+4. Found the original cookie data: {"showpassword":"no","bgcolor":"#ffffff"}.
+5. Modified "showpassword" from "no" to "yes" in the JSON data.
+6. XOR-encrypted the modified data and Base64-encoded it to generate a new cookie.
+7. Replaced the old cookie value with the new one.
+8. Refreshed the page and successfully retrieved the password for Natas12.
+
+Tools Used:
+- Browser Developer Tools (Application tab, Cookies)
+- Python script for decryption and encryption
+- Linux Terminal
+
+Password Found:
+EDXp0pS26wLKHZy1rDB9JdPCYkLNUz3V
+
+Conclusion:
+Successfully bypassed the cookie protection using XOR decryption and re-encryption, gaining admin access and retrieving the next level's password.
+
+
+Level: Natas 12
+
+Objective:
+Exploit an insecure file upload mechanism to upload a disguised PHP script, execute it, and retrieve the password for Natas Level 13.
+
+Steps:
+1. Logged in at http://natas12.natas.labs.overthewire.org using credentials from Level 11.
+2. Observed that the page allowed uploading files with minimal checks (only based on file extension).
+3. Created a PHP script with the code: <?php echo file_get_contents("/etc/natas_webpass/natas13"); ?>.
+4. Renamed the script file as shell.php.jpg to bypass file extension checks.
+5. Uploaded the disguised PHP script using the upload form.
+6. Copied the uploaded file link provided after upload.
+7. Opened the uploaded file link, which executed the PHP script on the server.
+8. Retrieved the password for Natas13 from the page.
+
+Tools Used:
+- Text Editor to create PHP script
+- Browser for file upload and execution
+
+Password Found:
+jmLTY0qiPZBbaKc9341cqPQZBJv7MQbY
+
+Conclusion:
+Successfully exploited a weak file upload validation by disguising a PHP script as an image, leading to unauthorized code execution and retrieval of sensitive information.
+
+
+Level: Natas 13
+
+Objective:
+Bypass server-side file signature checks to upload and execute a PHP script disguised as a JPEG image and retrieve the password for Natas Level 14.
+
+Steps:
+1. Logged in at http://natas13.natas.labs.overthewire.org using credentials from Level 12.
+2. Observed that the upload form now validates file contents based on magic bytes to ensure the file is a real image.
+3. Created a fake JPEG file (shell.jpg) by:
+   - Adding real JPEG magic bytes (ÿØÿà) at the beginning.
+   - Embedding PHP code after the magic bytes to read the Natas14 password.
+4. Uploaded the disguised JPEG-PHP file using the upload form.
+5. Copied the uploaded file's link provided after upload.
+6. Opened the uploaded file link, which executed the embedded PHP code on the server.
+7. Retrieved the password for Natas14 from the output displayed.
+
+Tools Used:
+- Text Editor to create fake JPEG file
+- Browser for uploading and accessing the uploaded file
+
+Password Found:
+Lg96M10TdfaPyVBkJdjymbllQ5L6qdl1
+
+Conclusion:
+Successfully bypassed the server-side file content verification by crafting a file with correct magic bytes and embedding executable PHP code, leading to password retrieval.
+
+
+Level: Natas 14
+
+Objective:
+Exploit a SQL Injection vulnerability to bypass authentication and retrieve the password for Natas Level 15.
+
+Steps:
+1. Logged in at http://natas14.natas.labs.overthewire.org using credentials from Level 13.
+2. Observed that the login form directly passed user input into an SQL query without sanitization.
+3. Used SQL Injection in the username field by entering: natas15" OR "1"="1
+4. Left the password field empty as the injected query did not require password verification.
+5. Clicked Login and successfully bypassed authentication.
+6. Retrieved the password for Natas15 displayed on the page.
+
+Tools Used:
+- Browser (Chrome/Firefox)
+- Manual SQL Injection technique
+
+Password Found:
+AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J
+
+Conclusion:
+Successfully bypassed insecure login authentication using SQL Injection by manipulating the SQL query logic, allowing unauthorized access to retrieve sensitive information.
+
+
+Level: Natas 15
+
+Objective:
+Use Blind SQL Injection to extract the password for Natas Level 16 character-by-character.
+
+Steps:
+1. Logged in at http://natas15.natas.labs.overthewire.org using credentials from Level 14.
+2. Observed that the page allowed searching for a username and based the response on query results.
+3. Realized that Blind SQL Injection was possible by injecting conditions and checking server responses.
+4. Injected SQL payloads such as: natas16" AND password LIKE BINARY "a%" -- to test one character at a time.
+5. Based on the server's responses (user exists or not), determined correct characters sequentially.
+6. Repeated the process, building the password letter-by-letter until the full password was discovered.
+
+Tools Used:
+- Browser (Chrome/Firefox)
+- Manual Blind SQL Injection technique
+
+Password Found:
+WaIHEacj63wnNIBROHeqi3p9t0m5nhmh
+
+Conclusion:
+Successfully exploited a Blind SQL Injection vulnerability by manually building the password through server response analysis.
+
+
+Level: Natas 16
+
+Objective:
+Exploit command injection vulnerability to retrieve the password for Natas Level 17.
+
+Steps:
+1. Logged in at http://natas16.natas.labs.overthewire.org using credentials from Level 15.
+2. Observed that user input was passed to a Linux command, likely grep, for processing.
+3. Realized that special command injection using $(...) syntax could allow executing custom commands.
+4. Injected the payload: test$(cat /etc/natas_webpass/natas17) into the search field.
+5. Submitted the form and successfully executed the cat command on the server.
+6. Retrieved the contents of the Natas17 password file directly from the output.
+
+Tools Used:
+- Browser (Chrome)
+- Manual command injection technique
+
+Password Found:
+8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw
+
+Conclusion:
+Successfully exploited the command injection vulnerability by executing system commands through user input, leading to the retrieval of sensitive information.
+
+
+Level: Natas 18
+
+Objective:
+Use time-based blind command injection to retrieve the password for Natas Level 18.
+
+Steps:
+1. Logged in at http://natas17.natas.labs.overthewire.org using credentials from Level 16.
+2. Observed that the search form response timing could be influenced using command injection.
+3. Crafted injections like: natas18$(grep ^a /etc/natas_webpass/natas18 && sleep 5) to test password characters.
+4. Analyzed the server's response time to determine if the guessed character was correct.
+5. Based on slow responses, manually built the password one character at a time.
+6. Completed the 32-character password for Natas18 through iterative guessing.
+
+Tools Used:
+- Browser (Chrome)
+- Manual Time-based Blind Command Injection technique
+
+Password Found:
+8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw
+
+Conclusion:
+Successfully exploited time-based blind command injection by measuring response delays to reconstruct the password without direct output leakage.
+
+
+Level: Natas 18
+
+Objective:
+Exploit improper session management by brute-forcing session IDs to access admin privileges and retrieve the password for Natas Level 19.
+
+Steps:
+1. Logged in at http://natas18.natas.labs.overthewire.org using credentials from Level 17.
+2. Observed that the server assigned a PHPSESSID to track login status.
+3. Suspected that session IDs were predictable numeric values.
+4. Modified the PHPSESSID cookie value manually using browser Developer Tools.
+5. Iteratively tried different session ID values until a session with admin privileges was found.
+6. Successfully retrieved the password for Natas19 once authenticated as admin.
+
+Tools Used:
+- Browser (Chrome)
+- Manual Cookie Manipulation
+
+Password Found:
+xvKIqDjy4OPv7wCRgDlmj0pFsCsDjhdP
+
+Conclusion:
+Successfully exploited predictable session management flaws by manually brute-forcing session IDs, gaining unauthorized access to sensitive information.
+
+
+Level: Natas 19
+
+Objective:
+Exploit predictable session ID generation based on usernames to gain admin access and retrieve the password for Natas Level 20.
+
+Steps:
+1. Logged in at http://natas19.natas.labs.overthewire.org using credentials from Level 18.
+2. Observed that PHPSESSID was being used to manage user sessions.
+3. Analyzed the session ID and discovered it was the hexadecimal representation of the username.
+4. Manually changed the PHPSESSID value to 61646d696e (hex encoding of 'admin') using browser Developer Tools.
+5. Refreshed the page and was successfully logged in as admin.
+6. Retrieved the password for Natas20 from the page.
+
+Tools Used:
+- Browser (Chrome)
+- Hex encoding knowledge
+- Manual Cookie Manipulation
+
+Password Found:
+4IwIrekcuZlA9OsjOkoUtwU6lhokCPYs
+
+Conclusion:
+Successfully bypassed session management by exploiting predictable hex-encoded session IDs tied to usernames, leading to unauthorized access.
+
+
+Level: Natas 20
+
+Objective:
+Exploit improper session handling to modify session values and retrieve the password for Natas Level 21.
+
+Steps:
+1. Logged in at http://natas20.natas.labs.overthewire.org using credentials from Level 19.
+2. Observed that the server used temporary session files to store user inputs.
+3. Discovered that submitting a specially crafted payload could manipulate the session file content.
+4. Submitted the following payload:
+   admin
+   admin 1
+5. Upon refreshing the page, the server recognized the session as an admin session.
+6. Retrieved the password for Natas21 from the page.
+
+Tools Used:
+- Browser (Chrome)
+- Manual payload manipulation through form submission
+
+Password Found:
+EawQwrcBNkPEhc7WcrAVBvEf9cRXn6k9
+
+Conclusion:
+Successfully exploited flawed session storage by injecting new session parameters, leading to unauthorized admin access.
+
+
+Level: Natas 21
+
+Objective:
+Exploit weak session management by crafting a custom session ID and manually inserting admin parameters to gain unauthorized admin access.
+
+Steps:
+1. Logged in at http://natas21.natas.labs.overthewire.org using credentials from Level 20.
+2. Observed that sessions were managed via PHPSESSID cookies and stored in server files.
+3. Created a new PHPSESSID manually by editing browser cookies.
+4. Submitted a crafted payload containing:
+   admin
+   admin 1
+5. Refreshed the admin page, which read the manipulated session file.
+6. Retrieved the password for Natas22 from the page after gaining admin access.
+
+Tools Used:
+- Browser (Chrome)
+- Manual Cookie Manipulation
+- Form payload crafting
+
+Password Found:
+chG9fbe1Tq2eWVMgjYYD1mrF0aVbYFl1
+
+Conclusion:
+Successfully bypassed session authentication by creating a custom session ID and injecting administrative parameters into the session data.
+
+
+Level: Natas 22
+
+Objective:
+Bypass automatic redirect to access hidden content and retrieve the password for Natas Level 23.
+
+Steps:
+1. Logged in at http://natas22.natas.labs.overthewire.org using credentials from Level 21.
+2. Observed that the server immediately issued a redirect response after login.
+3. Analyzed the URL structure and identified a hidden parameter `revelio`.
+4. Manually accessed the URL: http://natas22.natas.labs.overthewire.org/index.php?revelio to bypass the redirect.
+5. Retrieved the password for Natas23 displayed on the page.
+
+Tools Used:
+- Browser (Chrome)
+- Manual URL manipulation
+
+Password Found:
+D0vladTSnZh4IhkVwjVsLKVjl3NnsSzt
+
+Conclusion:
+Successfully bypassed improper redirect handling by manually crafting the correct URL, gaining access to the hidden page content.
+
+
+Level: Natas 23
+
+Objective:
+Manipulate cookies to escalate privileges and retrieve the password for Natas Level 24.
+
+Steps:
+1. Logged in at http://natas23.natas.labs.overthewire.org using credentials from Level 22.
+2. Observed that user access level was controlled by a cookie named 'admin'.
+3. Identified that the admin cookie was set to 0 (regular user).
+4. Manually modified the admin cookie value to 1 using browser Developer Tools.
+5. Refreshed the page to gain admin access.
+6. Retrieved the password for Natas24 displayed on the page.
+
+Tools Used:
+- Browser (Chrome)
+- Manual Cookie Manipulation
+
+Password Found:
+OsW8FUyLLYxoki7T6s7ghSQNhMBpI7As
+
+Conclusion:
+Successfully exploited weak session handling by modifying cookie values, leading to unauthorized admin access and retrieval of sensitive information.
+
+
+Level: Natas 24
+
+Objective:
+Exploit Local File Inclusion (LFI) vulnerability through directory traversal to retrieve the password for Natas Level 25.
+
+Steps:
+1. Logged in at http://natas24.natas.labs.overthewire.org using credentials from Level 23.
+2. Observed that the input field allowed the server to read files specified by user input.
+3. Crafted a directory traversal payload: ....//....//etc/natas_webpass/natas25
+4. Submitted the payload via the input form.
+5. Successfully bypassed file restrictions and accessed the hidden password file.
+6. Retrieved the password for Natas25 from the page content.
+
+Tools Used:
+- Browser (Chrome)
+- Manual Payload Injection (Directory Traversal)
+
+Password Found:
+G1cDjWxTKO2TKl1RBw2y2OhbJ7TkMG3C
+
+Conclusion:
+Successfully exploited a Local File Inclusion vulnerability by using directory traversal techniques to access restricted files, leading to retrieval of sensitive information.
+
+
+Level: Natas 25
+
+Objective:
+Exploit a Local File Inclusion (LFI) vulnerability via unsanitized language parameter input to retrieve the password for Natas Level 26.
+
+Steps:
+1. Logged in at http://natas25.natas.labs.overthewire.org using credentials from Level 24.
+2. Observed that the language selection system was vulnerable to file inclusion attacks.
+3. Crafted a directory traversal payload to include sensitive system files.
+4. Set the lang parameter to: ....//....//....//....//etc/natas_webpass/natas26
+5. Loaded the page, causing the server to include and display the content of the password file.
+6. Retrieved the password for Natas26 directly from the output.
+
+Tools Used:
+- Browser (Chrome)
+- Manual Payload Injection (Directory Traversal)
+
+Password Found:
+oGgWAJ7zcGTlMOOoZgSvr2LVYjx6Nlgz
+
+Conclusion:
+Successfully exploited a file inclusion vulnerability by crafting directory traversal payloads to gain unauthorized access to sensitive server files.
+
+
+Level: Natas 26
+
+Objective:
+Exploit unsafe PHP unserialize() behavior to retrieve the password for Natas Level 27.
+
+Steps:
+1. Logged in at http://natas26.natas.labs.overthewire.org using credentials from Level 25.
+2. Observed that uploaded files were processed using PHP's unserialize() function.
+3. Crafted a malicious serialized Logger object with filename set to /etc/natas_webpass/natas27.
+4. Uploaded the serialized payload disguised as a normal file.
+5. Upon server unserialization, the password file content was read and displayed.
+6. Retrieved the password for Natas27.
+
+Tools Used:
+- Browser (Chrome)
+- PHP serialization knowledge
+- Manual Payload Crafting
+
+Password Found:
+55TBjpPZUUJgVP5b3BnbG6ON9uDPVzCJ
+
+Conclusion:
+Successfully exploited unsafe unserialize() by crafting a malicious PHP object to execute unintended file read operations, gaining access to sensitive information.
+
+Level: Natas 27
+
+Objective:
+Exploit improper input length handling to bypass authentication and retrieve the password for Natas Level 28.
+
+Steps:
+1. Logged in at http://natas27.natas.labs.overthewire.org using credentials from Level 26.
+2. Observed that the login mechanism truncated input after 64 characters.
+3. Crafted a username longer than 64 characters to align and manipulate password comparison.
+4. Bypassed normal authentication checks due to improper server-side input handling.
+5. Retrieved the password for Natas28 displayed after successful login.
+
+Tools Used:
+- Browser (Chrome)
+- Manual Input Crafting (Long Username Attack)
+
+Password Found:
+JWwR438wkgTsNKBbcJoowyysdM82YjeF
+
+Conclusion:
+Successfully exploited a server-side username length mismanagement to gain unauthorized access by manipulating input truncation behavior.
+
+
+Level: Natas 28
+
+Objective:
+Exploit insecure command execution by injecting additional shell commands to retrieve the password for Natas Level 29.
+
+Steps:
+1. Logged in at http://natas28.natas.labs.overthewire.org using credentials from Level 27.
+2. Observed that user input was directly used inside a system grep command.
+3. Crafted a payload: test; cat /etc/natas_webpass/natas29
+4. Injected the payload via the search input field.
+5. Upon form submission, the server executed both commands sequentially.
+6. Retrieved the password for Natas29 displayed after successful command injection.
+
+Tools Used:
+- Browser (Chrome/Firefox)
+- Manual Command Injection Technique
+
+Password Found:
+JWwR438wkgTsNKBbcJoowyysdM82YjeF
+
+Conclusion:
+Successfully exploited insecure server command execution by injecting shell metacharacters, leading to unauthorized access to sensitive system files.
+
+
+Level: Natas 29
+
+Objective:
+Exploit PHP's weak hash comparison vulnerability (type juggling) to bypass authentication and retrieve the password for Natas Level 30.
+
+Steps:
+1. Logged in at http://natas29.natas.labs.overthewire.org using credentials from Level 28.
+2. Observed that the system compared MD5 hashes of two user inputs.
+3. Analyzed that loose comparison (==) allowed type juggling when hashes started with 0e.
+4. Submitted:
+   - Password 1 = 240610708
+   - Password 2 = QNKCDZO
+5. PHP evaluated both hashes as equivalent numeric values.
+6. Successfully bypassed the authentication and retrieved the password for Natas30.
+
+Tools Used:
+- Browser (Chrome)
+- Knowledge of PHP Type Juggling Vulnerability
+
+Password Found:
+bWpoI2Y3Wk1EZzFMZGNsbmV3QXZCbVJ1
+
+Conclusion:
+Successfully exploited loose type comparison in PHP's hash checking to bypass security checks and gain unauthorized access.
+
+
+Level: Natas 30
+
+Objective:
+Exploit improper string matching in username validation to bypass admin-only restrictions and retrieve the password for Natas Level 31.
+
+Steps:
+1. Logged in at http://natas30.natas.labs.overthewire.org using credentials from Level 29.
+2. Observed that the admin-only check was based on loose matching rather than strict equality.
+3. Crafted a username containing 'admin', such as 'admin123'.
+4. Submitted the form with any arbitrary password.
+5. Successfully bypassed admin-only restriction and retrieved the password for Natas31.
+
+Tools Used:
+- Browser (Chrome)
+- Manual Input Manipulation
+
+Password Found:
+a5iNgD8Yc1v8Ggyd5M77xkS7mF2aXPwt
+
+Conclusion:
+Successfully exploited weak string matching logic to bypass security checks and gain unauthorized access to sensitive information.
+
+
+Level: Natas 31
+
+Objective:
+Exploit weak file upload validation by uploading a disguised PHP web shell to retrieve the password for Natas Level 32.
+
+Steps:
+1. Logged in at http://natas31.natas.labs.overthewire.org using credentials from Level 30.
+2. Observed that uploaded files were validated based on their extension.
+3. Created a PHP file disguised with a double extension: shell.php.jpg
+4. Uploaded the crafted file via the provided form.
+5. Accessed the uploaded file URL, executing PHP code on the server.
+6. Retrieved the password for Natas32 displayed as output.
+
+Tools Used:
+- Browser (Chrome)
+- Manual Payload Crafting
+
+Conclusion:
+Successfully bypassed weak server-side file validation by using double extension trick, leading to unauthorized remote code execution.
+
+
+Final walkthrough:
+Completing the OverTheWire NATAS wargame series from Level 0 to Level 31 was a transformative experience in understanding web application security. Each level introduced a new vulnerability, starting from basic HTML inspection and HTTP fundamentals, moving into complex attacks like Local File Inclusion (LFI), Remote Code Execution (RCE), SQL Injection, Blind Command Injection, Cookie Manipulation, PHP Object Injection, and Hash Collision Exploits. I carefully analyzed server responses, manipulated cookies and sessions, crafted payloads to bypass validations, and built a strong foundation in web security by practicing techniques such as directory traversal, file upload bypasses, type juggling, and session hijacking. Through a methodical approach, I successfully retrieved every password up to Natas32, overcoming challenges that simulated real-world hacking scenarios, and completed the entire publicly available NATAS series with deep hands-on learning.
+
+
+Personal takeaways:
+This journey through NATAS significantly sharpened my practical cybersecurity skills and expanded my perspective on ethical hacking. I learned how to think critically like an attacker, spot hidden vulnerabilities in web applications, and devise creative strategies to exploit poorly coded systems. It reinforced the importance of attention to detail, logical reasoning, and patience while tackling complex security problems. Most importantly, it built my confidence in handling real-world security challenges, made me comfortable with manual testing beyond automated tools, and motivated me to pursue advanced cybersecurity learning and certifications in the future. Completing NATAS was not just a technical achievement — it shaped my mindset to approach security with curiosity, persistence, and responsibility.

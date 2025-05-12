@@ -1,0 +1,330 @@
+Team Members: 
+	(1) Rujuta Bhushan Shetkar 
+	(2) Pratiksha Somnath Swami
+
+Level: Natas 0
+
+# Opened http://natas0.natas.labs.overthewire.org in browser
+# Used username: natas0 and password: natas0
+# Right-clicked and selected "View Page Source"
+
+
+Level: Natas 1
+
+# Opened http://natas1.natas.labs.overthewire.org in browser
+# Used username: natas1 and password: 0nzCigAq7t2iALyvU9xcHlYN4MlkIwlq
+# Right-clicked and selected "View Page Source" but right click was blocked by JavaScript so I pressed ctrl+U
+
+
+Level: Natas 2
+
+# Opened http://natas2.natas.labs.overthewire.org in browser
+# Used username: natas2 and password: TguMNxKo1DSa1tujBLuZJnDUlCcUAPlI
+# Navigated to /files/users.txt
+
+
+Level: Natas 3
+
+# Opened http://natas3.natas.labs.overthewire.org in browser
+# Used username: natas3 and password: 3gqisGdR0pjm6tpkDKdIWO2hSvchLeYH
+# Right-clicked and selected "View Page Source"
+# Found reference to /robots.txt
+# Accessed /robots.txt and found Disallow: /s3cr3t/
+# Opened /s3cr3t/users.txt
+
+
+Level: Natas 4
+
+# Opened http://natas4.natas.labs.overthewire.org in browser
+# Used username: natas4 and password: QryZXc2e0zahULdHrtHxzyYkj59kUxLQ
+# Used curl with Referer header to access the page
+curl -u natas4:QryZXc2e0zahULdHrtHxzyYkj59kUxLQ -H "Referer: http://natas5.natas.labs.overthewire.org/" http://natas4.natas.labs.overthewire.org
+
+
+Level: Natas 5
+
+# Opened http://natas5.natas.labs.overthewire.org in browser
+# Logged in with username: natas5 and password: 0n35PkggAPm2zbEpOU802c0x0Msn1ToK
+# Opened Developer Tools → Application → Cookies
+# Modified cookie value loggedin=false to loggedin=true
+# Refreshed the page and got the password
+
+
+Level: Natas 6
+
+# Opened http://natas6.natas.labs.overthewire.org in browser
+# Logged in with username: natas6 and password: 0RoJwHdSKWFTYR5WuiAewauSuNaBXned
+# Viewed Page Source
+# Found hint about secret file
+# Navigated manually to /includes/secret.inc
+# Retrieved secret and submitted it in the form
+
+
+Level: Natas 7
+
+# Opened http://natas7.natas.labs.overthewire.org in browser
+# Logged in with username: natas7 and password: bmg8SvU1LizuWjx3y7xkNERkHxGre0GS
+# Observed URL changes with ?page=home and ?page=about
+# Modified URL to ?page=/etc/natas_webpass/natas8
+# Retrieved password directly
+
+
+Level: Natas 8
+
+# Opened http://natas8.natas.labs.overthewire.org in browser
+# Logged in with username: natas8 and password: xcoXLmzMkoIP9D7hlgPlh9XD7OgLAe5Q
+# Viewed page source
+# Found base64 encoded secret
+# Used base64 decoding in Linux to decode the secret
+# Submitted decoded secret through the form
+
+
+Level: Natas 9
+
+# Opened http://natas9.natas.labs.overthewire.org in browser
+# Logged in with username: natas9 and password: ZE1ck82lmdGIoErlhQgWND6j2Wzz6b6t
+# In the search input, entered: ; cat /etc/natas_webpass/natas10
+# Submitted form and retrieved the password
+
+
+Level: Natas 10
+
+# Opened http://natas10.natas.labs.overthewire.org in browser
+# Logged in with username: natas10 and password: t7I5VHvpa14sJTUGV0cbEsbYfFP2dmOu
+# In the search input, entered: . /etc/natas_webpass/natas11
+# Submitted form and retrieved the password
+
+
+Level: Natas 11
+
+# Opened http://natas11.natas.labs.overthewire.org in browser
+# Logged in with username: natas11 and password: UJdqkK1pTu6VLt9UHWAgRZz6sVUZ3lEk
+# Opened Developer Tools → Application tab → Cookies
+# Copied the value of the 'data' cookie
+# Decoded and decrypted the cookie to reveal {"showpassword":"no","bgcolor":"#ffffff"}
+# Modified the decrypted data to {"showpassword":"yes","bgcolor":"#ffffff"}
+# XOR-encrypted and Base64-encoded the modified data
+# Replaced the old cookie with the new value: MGwKDAc3LzQONDoDFiYwVkEtN1FIaDUIAA82CgdvJ0tCJyIEBSI7SBg=
+# Refreshed the page to reveal the password for Natas12
+
+
+Level: Natas 12
+
+# Opened http://natas12.natas.labs.overthewire.org in browser
+# Logged in with username: natas12 and password: EDXp0pS26wLKHZy1rDB9JdPCYkLNUz3V
+# Created a file named shell.php.jpg containing:
+# <?php echo file_get_contents("/etc/natas_webpass/natas13"); ?>
+# Uploaded the file using the provided upload form
+# Copied the uploaded file's link shown by the server
+# Opened the uploaded file link in the browser
+# Retrieved the password for Natas13 from the executed PHP script
+
+
+Level: Natas 13
+
+# Opened http://natas13.natas.labs.overthewire.org in browser
+# Logged in with username: natas13 and password: jmLTY0qiPZBbaKc9341cqPQZBJv7MQbY
+# Created a file named shell.jpg with the following content:
+# First added JPEG magic bytes: ÿØÿà
+# Then added PHP code: <?php echo file_get_contents("/etc/natas_webpass/natas14"); ?>
+# Uploaded the shell.jpg file through the provided upload form
+# Copied the link of the uploaded file shown by the server
+# Opened the uploaded file link in the browser
+# Retrieved the password for Natas14 from the output of the PHP script
+
+
+Level: Natas 14
+
+# Opened http://natas14.natas.labs.overthewire.org in browser
+# Logged in with username: natas14 and password: Lg96M10TdfaPyVBkJdjymbllQ5L6qdl1
+# Observed a login form requesting username and password
+# In the username field, entered: natas15" OR "1"="1
+# Left the password field empty
+# Clicked the Login button
+# Successfully bypassed the login using SQL Injection
+# Retrieved the password for Natas15 from the resulting page
+
+
+Level: Natas 15
+
+# Opened http://natas15.natas.labs.overthewire.org in browser
+# Logged in with username: natas15 and password: AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J
+# Observed a user search form
+# Performed Blind SQL Injection manually by trying:
+# Example query: natas16" AND password LIKE BINARY "a%" --
+# Observed server responses to determine if guessed characters were correct
+# Built the password character-by-character using manual guessing
+# Retrieved the full password for Natas16 after successful character matches
+
+
+Level: Natas 16
+
+# Opened http://natas16.natas.labs.overthewire.org in browser
+# Logged in with username: natas16 and password: WaIHEacj63wnNIBROHeqi3p9t0m5nhmh
+# Observed a search form accepting user input
+# Injected a command using syntax: test$(cat /etc/natas_webpass/natas17)
+# Submitted the search form with the payload
+# Retrieved the password for Natas17 from the page output
+
+
+Level: Natas 17
+
+# Opened http://natas17.natas.labs.overthewire.org in browser
+# Logged in with username: natas17 and password: 8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw
+# Observed a search form that responded differently based on timing
+# Injected payloads to perform time-based Blind Command Injection:
+# Example injection: natas18$(grep ^a /etc/natas_webpass/natas18 && sleep 5)
+# Measured server response delay to confirm correct character guesses
+# Built the password for Natas18 character-by-character using slow response detection
+# Retrieved the full password after successful timing analysis
+
+
+Level: Natas 18
+
+# Opened http://natas18.natas.labs.overthewire.org in browser
+# Logged in with username: natas18 and password: 8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw
+# Observed session management through PHPSESSID cookie
+# Manually changed PHPSESSID value in Developer Tools
+# Tried different numeric session IDs starting from 0 upwards
+# Found a session ID that authenticated as admin
+# Retrieved the password for Natas19 from the page
+
+
+Level: Natas 19
+
+# Opened http://natas19.natas.labs.overthewire.org in browser
+# Logged in with username: natas19 and password: xvKIqDjy4OPv7wCRgDlmj0pFsCsDjhdP
+# Observed session management using PHPSESSID cookies
+# Realized session IDs were hex-encoded usernames
+# Changed PHPSESSID value to 61646d696e (hex for 'admin')
+# Refreshed the page and retrieved the password for Natas20
+
+
+Level: Natas 20
+
+# Opened http://natas20.natas.labs.overthewire.org in browser
+# Logged in with username: natas20 and password: 4IwIrekcuZlA9OsjOkoUtwU6lhokCPYs
+# Observed a message submission form
+# In the form, submitted the payload:
+# admin
+# admin 1
+# Refreshed the page
+# Retrieved the password for Natas21 after being treated as admin
+
+
+Level: Natas 21
+
+# Opened http://natas21.natas.labs.overthewire.org in browser
+# Logged in with username: natas21 and password: EawQwrcBNkPEhc7WcrAVBvEf9cRXn6k9
+# Visited the main page and submitted a normal message
+# Observed the PHPSESSID cookie assigned by the server
+# Manually changed PHPSESSID to a new value (e.g., 'admin')
+# Submitted a payload: name=admin\nadmin 1
+# Visited the admin page
+# Retrieved the password for Natas22 after successfully becoming admin
+
+
+Level: Natas 22
+
+# Opened http://natas22.natas.labs.overthewire.org in browser
+# Logged in with username: natas22 and password: chG9fbe1Tq2eWVMgjYYD1mrF0aVbYFl1
+# Observed immediate redirect after login
+# Bypassed redirect manually by accessing URL: http://natas22.natas.labs.overthewire.org/index.php?revelio
+# Retrieved the password for Natas23 directly from the page
+
+
+Level: Natas 23
+
+# Opened http://natas23.natas.labs.overthewire.org in browser
+# Logged in with username: natas23 and password: D0vladTSnZh4IhkVwjVsLKVjl3NnsSzt
+# Observed an 'Access Denied' message based on user privilege
+# Opened Developer Tools → Application tab → Cookies
+# Found admin cookie with value 0
+# Changed the admin cookie value from 0 to 1
+# Refreshed the page
+# Retrieved the password for Natas24 after becoming admin
+
+
+Level: Natas 24
+
+# Opened http://natas24.natas.labs.overthewire.org in browser
+# Logged in with username: natas24 and password: OsW8FUyLLYxoki7T6s7ghSQNhMBpI7As
+# Observed a file read functionality based on user input
+# Injected a payload to perform directory traversal:
+# ....//....//etc/natas_webpass/natas25
+# Submitted the payload
+# Retrieved the password for Natas25 from the page output
+
+
+Level: Natas 25
+
+# Opened http://natas25.natas.labs.overthewire.org in browser
+# Logged in with username: natas25 and password: G1cDjWxTKO2TKl1RBw2y2OhbJ7TkMG3C
+# Observed that language selection included user input without sanitization
+# Modified the 'lang' parameter in the URL to perform directory traversal
+# Used payload: ....//....//....//....//etc/natas_webpass/natas26
+# Retrieved the password for Natas26 directly from the included file
+
+
+Level: Natas 26
+
+# Opened http://natas26.natas.labs.overthewire.org in browser
+# Logged in with username: natas26 and password: oGgWAJ7zcGTlMOOoZgSvr2LVYjx6Nlgz
+# Observed file upload functionality vulnerable to unserialize() attacks
+# Created a serialized Logger object with filename set to /etc/natas_webpass/natas27
+# Serialized object payload: O:6:"Logger":2:{s:8:"filename";s:27:"/etc/natas_webpass/natas27";s:3:"log";s:0:"";}
+# Uploaded the malicious payload
+# Retrieved the password for Natas27 after server unserialized and read the password file
+
+
+Level: Natas 27
+
+# Opened http://natas27.natas.labs.overthewire.org in browser
+# Logged in with username: natas27 and password: 55TBjpPZUUJgVP5b3BnbG6ON9uDPVzCJ
+# Observed login form vulnerable to username/password field overlap
+# Crafted long username to overflow and manipulate password matching
+# Retrieved the password for Natas28 by bypassing proper authentication logic
+
+
+Level: Natas 28
+
+# Opened http://natas28.natas.labs.overthewire.org in browser
+# Logged in with username: natas28 and password: JWwR438wkgTsNKBbcJoowyysdM82YjeF
+# Observed that input was used in a grep command execution without proper sanitization
+# Injected a payload: test; cat /etc/natas_webpass/natas29
+# Submitted the form
+# Retrieved the password for Natas29 from the page output
+
+
+Level: Natas 29
+
+# Opened http://natas29.natas.labs.overthewire.org in browser
+# Logged in with username: natas29 and password: JWwR438wkgTsNKBbcJoowyysdM82YjeF
+# Observed password check based on weak MD5 hash comparison
+# Submitted:
+# Password 1 = 240610708
+# Password 2 = QNKCDZO
+# Took advantage of PHP type juggling where both hashes start with 0e
+# Successfully bypassed password check and retrieved password for Natas30
+
+
+Level: Natas 30
+
+# Opened http://natas30.natas.labs.overthewire.org in browser
+# Logged in with username: natas30 and password: bWpoI2Y3Wk1EZzFMZGNsbmV3QXZCbVJ1
+# Observed login restricted to 'admins only'
+# Crafted a username containing the word 'admin', e.g., 'admin123'
+# Submitted the form with any password
+# Bypassed admin check and retrieved the password for Natas31
+
+
+Level: Natas 31
+
+# Opened http://natas31.natas.labs.overthewire.org in browser
+# Logged in with username: natas31 and password: a5iNgD8Yc1v8Ggyd5M77xkS7mF2aXPwt
+# Observed file upload functionality with basic extension checks
+# Created a PHP file disguised as shell.php.jpg
+# Uploaded the file
+# Accessed the uploaded file's URL
+# Executed PHP code to read /etc/natas_webpass/natas32
+# Retrieved the password for Natas32

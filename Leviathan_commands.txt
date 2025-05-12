@@ -1,0 +1,84 @@
+Team Members: 
+	(1) Rujuta Bhushan Shetkar 
+	(2) Pratiksha Somnath Swami
+
+Level: Leviathan 0
+
+ssh leviathan0@leviathan.labs.overthewire.org -p 2223
+ls -la
+cd .backup
+ls -la
+less bookmarks.html
+
+
+Level: Leviathan 1
+
+ssh leviathan1@leviathan.labs.overthewire.org -p 2223
+ls -la
+./check
+strings check
+ltrace ./check
+./check
+cat /etc/leviathan_pass/leviathan2
+exit
+
+
+Level: Leviathan 2
+
+ssh leviathan2@leviathan.labs.overthewire.org -p 2223
+ls -la
+./printfile
+./printfile /etc/leviathan_pass/leviathan3
+exit
+
+
+Level: Leviathan 3
+
+ssh leviathan3@leviathan.labs.overthewire.org -p 2223
+ls -la
+./level3
+ls -la /tmp
+echo "test" > /tmp/myfile
+./level3 /tmp/myfile
+./level3 /etc/leviathan_pass/leviathan4
+exit
+
+
+Level: Leviathan 4
+
+ssh leviathan4@leviathan.labs.overthewire.org -p 2223
+ls -la
+./leviathan4
+echo "dummy" > /tmp/link
+ln -s /etc/leviathan_pass/leviathan5 /tmp/link
+./leviathan4
+exit
+
+
+Level: Leviathan 5
+
+ssh leviathan5@leviathan.labs.overthewire.org -p 2223
+ls -la
+./leviathan5
+find / -user leviathan5 -perm -4000 2>/dev/null
+strings /usr/bin/leviathan5
+exit
+
+
+Level: Leviathan 6
+
+ssh leviathan6@leviathan.labs.overthewire.org -p 2223
+ls -la
+./leviathan6
+./leviathan6 /etc/leviathan_pass/leviathan7
+exit
+
+
+Level: Leviathan 7
+
+ssh leviathan7@leviathan.labs.overthewire.org -p 2223
+ls -la
+./leviathan7
+cat /etc/leviathan_pass/leviathan8
+exit
+

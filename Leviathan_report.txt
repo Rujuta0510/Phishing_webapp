@@ -1,0 +1,202 @@
+Team Members: 
+	(1) Rujuta Bhushan Shetkar 
+	(2) Pratiksha Somnath Swami
+
+Level: Leviathan 0
+
+Objective:
+Explore the home directory to locate hidden files and find the password for the next user.
+
+Steps:
+1. Connected to leviathan0 using SSH.
+2. Ran 'ls -la' and discovered a hidden folder named '.backup'.
+3. Navigated into '.backup' and found a file named 'bookmarks.html'.
+4. Used 'less' to view bookmarks.html and located a hidden password inside the file.
+
+Tools Used:
+- SSH connection
+- Linux basic commands (ls, cd, less)
+
+Password Found:
+3QJ3TgzHDq
+
+Conclusion:
+Successfully identified hidden files and extracted the password for the next level by analyzing file contents inside a hidden directory.
+
+
+Level: Leviathan 1
+
+Objective:
+Bypass a password-protected SUID binary to retrieve the password for Leviathan Level 2.
+
+Steps:
+1. Connected to leviathan1 using SSH with the given credentials.
+2. Observed an SUID executable named 'check' owned by leviathan2.
+3. Executed 'check', which asked for a password.
+4. Used 'strings' on 'check' to find readable strings but found no clear password.
+5. Used 'ltrace' to trace library function calls and identified that the real password being compared was "sex".
+6. Executed './check' again and entered the correct password "sex", which spawned a shell.
+7. Inside the shell, accessed and read the file '/etc/leviathan_pass/leviathan2' to retrieve the password for the next level.
+8. Successfully retrieved the password and exited the shell.
+
+Tools Used:
+- SSH
+- Linux commands (ls, cd, cat, strings, ltrace)
+- Shell ($) access exploitation
+
+Password Found:
+NsN1HwFoyN
+
+Conclusion:
+Successfully exploited a weakly protected SUID executable by tracing function calls and bypassing password checks to escalate privileges and retrieve the next level password.
+
+
+Level: Leviathan 2
+
+Objective:
+Exploit a file-reading executable to retrieve the password for Leviathan Level 3.
+
+Steps:
+1. Connected to leviathan2 using SSH with the given credentials.
+2. Observed an executable named 'printfile' owned by leviathan3.
+3. Executed './printfile' without arguments to understand its usage.
+4. Supplied the file path '/etc/leviathan_pass/leviathan3' to the executable.
+5. The executable printed the contents of the specified file, revealing the password for the next level.
+
+Tools Used:
+- SSH
+- Linux commands (ls, cat)
+- Direct file access through executable
+
+Password Found:
+f0n8h2iWLP
+
+Conclusion:
+Successfully leveraged an executable’s file reading ability to directly access sensitive password files and escalate privileges.
+
+
+Level: Leviathan 3
+
+Objective:
+Manipulate file handling in a program to retrieve the password for Leviathan Level 4.
+
+Steps:
+1. Connected to leviathan3 using SSH with the given credentials.
+2. Found an executable named 'level3' owned by leviathan4.
+3. Observed that it reads a given file and prints its content.
+4. Tested with a custom file in '/tmp' to confirm functionality.
+5. Provided '/etc/leviathan_pass/leviathan4' as input to the executable.
+6. The executable outputted the password for the next level.
+
+Tools Used:
+- SSH
+- Linux commands (ls, echo, cat)
+- File handling exploitation
+
+Password Found:
+WG1egElCvO
+
+Conclusion:
+Successfully exploited an open file read functionality to gain unauthorized access to restricted password files.
+
+
+Level: Leviathan 4
+
+Objective:
+Exploit a symlink vulnerability to access the password for Leviathan Level 5.
+
+Steps:
+1. Connected to leviathan4 using SSH with the given credentials.
+2. Found an executable named 'leviathan4' owned by leviathan5.
+3. The executable tried to open a fixed file in '/tmp'.
+4. Created a symlink from '/tmp/link' pointing to '/etc/leviathan_pass/leviathan5'.
+5. Executed './leviathan4', which read the symlinked file and revealed the password.
+
+Tools Used:
+- SSH
+- Linux commands (ln, echo, cat)
+- Symlink exploitation
+
+Password Found:
+0dyxT7F4QD
+
+Conclusion:
+Successfully exploited insecure file access through symlink redirection to obtain restricted file content.
+
+
+Level: Leviathan 5
+
+Objective:
+Analyze SUID binaries to retrieve the password for Leviathan Level 6.
+
+Steps:
+1. Connected to leviathan5 using SSH with the given credentials.
+2. Found an SUID executable named 'leviathan5'.
+3. Used 'find' to search for all files with SUID permissions owned by leviathan5.
+4. Analyzed the binary using 'strings', revealing the password stored in cleartext inside.
+5. Retrieved the password from the discovered string.
+
+Tools Used:
+- SSH
+- Linux commands (find, strings)
+- SUID analysis
+
+Password Found:
+szo7HDB88w
+
+Conclusion:
+Successfully extracted sensitive information embedded inside a poorly protected SUID binary to escalate privileges.
+
+
+Level: Leviathan 6
+
+Objective:
+Use an argument injection vulnerability to retrieve the password for Leviathan Level 7.
+
+Steps:
+1. Connected to leviathan6 using SSH with the given credentials.
+2. Found an executable named 'leviathan6' owned by leviathan7.
+3. Executed 'leviathan6' without arguments to observe its behavior.
+4. Passed the file path '/etc/leviathan_pass/leviathan7' as an argument to the executable.
+5. The executable read the content and printed the password.
+
+Tools Used:
+- SSH
+- Linux commands (ls, cat)
+- Argument injection exploitation
+
+Password Found:
+qEs5Io5yM8
+
+Conclusion:
+Successfully exploited weak file access control using command-line argument injection to retrieve the next level’s password.
+
+
+Level: Leviathan 7
+
+Objective:
+Retrieve the password for the final Leviathan level by exploiting a simple file reading functionality.
+
+Steps:
+1. Connected to leviathan7 using SSH with the given credentials.
+2. Found an executable named 'leviathan7' owned by leviathan8.
+3. Executed 'leviathan7' to understand its behavior.
+4. Noticed no complex checks; attempted direct reading.
+5. Accessed the file '/etc/leviathan_pass/leviathan8' to retrieve the final password.
+
+Tools Used:
+- SSH
+- Linux commands (ls, cat)
+- Direct file reading
+
+Conclusion:
+Successfully accessed the final password using direct file reading techniques without needing further exploitation, completing all Leviathan levels.
+
+
+Final Walkthrough:
+
+In the Leviathan wargame, each level focused on exploiting basic file permissions, analyzing binaries, and understanding common vulnerabilities in executable files. Starting from Level 0, we gradually moved through tasks like identifying hidden files, exploiting SUID binaries, analyzing hardcoded passwords using the strings command, and manipulating environment variables to alter program execution flow. By Level 3 to Level 7, the challenges emphasized critical thinking and basic reverse engineering to reveal passwords hidden within compiled executables. Tools like ssh, ls, cat, strings, ltrace, and basic file permission concepts were crucial throughout the journey. Completing all levels till Leviathan 7 required systematically testing inputs, understanding how binaries interacted with files and system calls, and creatively using Linux utilities to manipulate the environment or program behavior.
+
+
+Personal Takeaways:
+Working through the Leviathan lab significantly deepened my understanding of Linux file permissions, executable vulnerabilities, and basic binary exploitation techniques. It reinforced the importance of thoroughly inspecting executables and thinking like an attacker to uncover potential weaknesses. I also became more confident using essential Linux commands for cybersecurity tasks and developed a systematic problem-solving mindset. One key lesson was realizing that many vulnerabilities stem from improper input validation or overly permissive system configurations, which are critical areas for any cybersecurity professional to monitor. Overall, Leviathan strengthened both my technical skills and my analytical approach to solving real-world security problems.

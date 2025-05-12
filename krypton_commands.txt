@@ -1,0 +1,81 @@
+Team Members: 
+	(1) Rujuta Bhushan Shetkar 
+	(2) Pratiksha Somnath Swami
+
+Level: Krypton 0
+
+ssh krypton0@krypton.labs.overthewire.org -p 2222
+ls
+cat README
+cat krypton1
+
+
+Level: Krypton 1
+
+ssh krypton1@krypton.labs.overthewire.org -p 2222
+ls
+cat README
+cat krypton2
+echo GxGxgGxgGxGxgGxG | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+
+
+Level: Krypton 2
+
+ssh krypton2@krypton.labs.overthewire.org -p 2222
+ls
+cat README
+ls krypton3
+cat krypton3/file
+strings krypton3/file
+
+
+Level: Krypton 3
+
+ssh krypton3@krypton.labs.overthewire.org -p 2222
+ls
+cat README
+cat krypton4
+
+
+Level: Krypton 4
+
+ssh krypton4@krypton.labs.overthewire.org -p 2222
+ls
+cat README
+ls krypton5
+cd krypton5
+ls -la
+cat krypton5.c
+
+
+Level: Krypton 5
+
+ssh krypton5@krypton.labs.overthewire.org -p 2222
+ls
+cat README
+ls krypton6
+cd krypton6
+ls -la
+file krypton6
+strings krypton6
+./krypton6
+
+
+Level: Krypton 6
+
+ssh krypton6@krypton.labs.overthewire.org -p 2222
+ls
+cat README
+ls krypton7
+cd krypton7
+ls -la
+cat krypton7.py
+
+
+Level: Krypton 7
+
+ssh krypton7@krypton.labs.overthewire.org -p 2222
+# Password: [decrypted password from Level 6]
+ls
+cat README
+cat krypton8
